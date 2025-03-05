@@ -44,6 +44,9 @@ const { query, pathname} = url.parse(req.url, true);
 
     //PRODUCT PAGE
     } else if (pathname === '/product') {
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        const product = dataObj[query.id];
+        const output = replaceTemplate(tempProduct, product.id);
         res.end(tempProduct);
 
     //API
