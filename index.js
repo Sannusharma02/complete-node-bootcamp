@@ -10,7 +10,7 @@ const tempProduct =fs.readFileSync(`${__dirname}/templates/template-product.html
 
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf8');
 const dataObj = JSON.parse(data);
-
+//
 const slugs = dataObj.map(el=>({
     slug: slugify(el.productName,{lower:true}),
     id: el.id
