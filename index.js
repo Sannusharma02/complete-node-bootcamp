@@ -1,10 +1,8 @@
 const fs = require('fs');
 const http = require('http');
 const url = require('url');
-
-const replaceTemplate = require('./modules/replaceTemplate')
-
-//SERVER
+const slugify = require('slugify');
+const replaceTemplate = require('./modules/replaceTemplate');
 
 const tempOverview =fs.readFileSync(`${__dirname}/templates/template-overview.html`, 'utf8');
 const tempCard =fs.readFileSync(`${__dirname}/templates/template-card.html`, 'utf8');
@@ -13,7 +11,12 @@ const tempProduct =fs.readFileSync(`${__dirname}/templates/template-product.html
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf8');
 const dataObj = JSON.parse(data);
 
+const slugs = dataObj.map(el=>({
+    slug: slugify(el.productName,{lower:true}),
+    id: el.id
+}));
 
+//SERVER
 const server = http.createServer((req, res) => {
 const { query, pathname} = url.parse(req.url, true);
 
@@ -36,7 +39,7 @@ const { query, pathname} = url.parse(req.url, true);
     //API
     } else if (pathname === '/api'){
         res.writeHead(200,{'Content-Type': 'application/json'});
-        res.end(data)
+        res.end(data);
 
     // NOT FOUND
     } else{
