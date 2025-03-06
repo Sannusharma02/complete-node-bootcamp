@@ -10,14 +10,14 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Sannusharma02/complete-node-bootcamp-.git"
+    "url": "git+https://github.com/Sannusharma02/complete-node-bootcamp.git"
   },
   "author": "Sannu Sharma",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Sannusharma02/complete-node-bootcamp-/issues"
+    "url": "https://github.com/Sannusharma02/complete-node-bootcamp/issues"
   },
-  "homepage": "https://github.com/Sannusharma02/complete-node-bootcamp-#readme",
+  "homepage": "https://github.com/Sannusharma02/complete-node-bootcamp#readme",
   "dependencies": {
     "express": "^4.21.2",
     "slugify": "^1.6.6"
